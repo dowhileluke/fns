@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/unified-signatures -- preserve individualized jsdoc info */
 type MapFn<T> = (n: number) => T
 
 function sanitizeArgs<T>(a: number, b?: number | MapFn<T>, c?: MapFn<T>) {
