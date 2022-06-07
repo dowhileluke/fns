@@ -1,5 +1,5 @@
 import { RollupOptions } from 'rollup'
-import typescript2 from 'rollup-plugin-typescript2'
+import typescript2, { RPT2Options } from 'rollup-plugin-typescript2'
 import pkg from './package.json'
 
 const options: RollupOptions = {
@@ -9,7 +9,11 @@ const options: RollupOptions = {
 		{ file: pkg.main, format: 'cjs' },
 	],
 	plugins: [
-		typescript2(),
+		typescript2({
+			tsconfigOverride: {
+				exclude: ['**/*.test.ts'],
+			},
+		}),
 	],
 }
 
