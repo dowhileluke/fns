@@ -1,0 +1,44 @@
+{
+  "name": "fns",
+  "version": "0.0.1",
+  "description": "functions that i don't want to copypaste everywhere",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node"
+  },
+  "xo": {
+    "extensions": [".ts"],
+    "semicolon": false,
+    "rules": {
+      "@typescript-eslint/object-curly-spacing": ["error", "always"],
+      "import/extensions": ["error", {
+        "ts": "never"
+      }]
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dowhileluke/fns.git"
+  },
+  "keywords": [
+    "utility",
+    "util"
+  ],
+  "author": "dowhileluke",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dowhileluke/fns/issues"
+  },
+  "homepage": "https://github.com/dowhileluke/fns#readme",
+  "devDependencies": {
+    "@types/jest": "^28.1.1",
+    "jest": "^28.1.0",
+    "ts-jest": "^28.0.4",
+    "typescript": "^4.7.3",
+    "xo": "^0.49.0"
+  }
+}
