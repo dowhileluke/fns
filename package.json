@@ -21,16 +21,9 @@
   "xo": {
     "semicolon": false,
     "rules": {
-      "@typescript-eslint/object-curly-spacing": [
-        "error",
-        "always"
-      ],
-      "import/extensions": [
-        "error",
-        {
-          "ts": "never"
-        }
-      ]
+      "@typescript-eslint/object-curly-spacing": ["error", "always"],
+      "import/extensions": ["error", { "ts": "never" }],
+      "unicorn/filename-case": "off"
     }
   },
   "repository": {
