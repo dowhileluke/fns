@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/unified-signatures -- preserve individualized jsdoc info */
 type MapFn<T> = (n: number) => T
+type MapIndexFn<T = number> = (_: unknown, index: number) => T
 
 function sanitizeArgs<T>(a: number, b?: number | MapFn<T>, c?: MapFn<T>) {
-	a = Math.trunc(a) // Strip fractions
+	a = Math.trunc(a) // Convert to integer
 
 	if (typeof b === 'number') {
 		const isAscending = b > a
@@ -24,10 +25,13 @@ export function generateArray<T>(n: number, mapFn: MapFn<T>): T[]
 export function generateArray<T>(a: number, b: number, mapFn: MapFn<T>): T[]
 export function generateArray<T>(a: number, b?: number | MapFn<T>, c?: MapFn<T>) {
 	const [start, length, isAscending, mapFn] = sanitizeArgs(a, b, c)
+	const indexToValue: MapIndexFn = isAscending ? (_, i) => start + i : (_, i) => start - i
 
-	return Array.from({ length }, (_, i) => {
-		const n = isAscending ? start + i : start - i
+	if (!mapFn) {
+		return Array.from({ length }, indexToValue)
+	}
 
-		return mapFn ? mapFn(n) : n
-	})
+	const indexToOutput: MapIndexFn<T> = (_, i) => mapFn(indexToValue(_, i))
+
+	return Array.from({ length }, indexToOutput)
 }

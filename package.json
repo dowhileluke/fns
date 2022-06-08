@@ -9,8 +9,8 @@
     "dist"
   ],
   "scripts": {
-    "lint": "xo",
     "test": "jest",
+    "lint": "xo",
     "prebuild": "rimraf dist/*",
     "build": "rollup -c rollup.config.ts --configPlugin typescript2"
   },
@@ -25,6 +25,9 @@
       "import/extensions": ["error", { "ts": "never" }],
       "unicorn/filename-case": "off"
     }
+  },
+  "release": {
+    "branches": ["main"]
   },
   "repository": {
     "type": "git",
