@@ -1,3 +1,6 @@
 export { generateArray } from './array/generateArray'
 export { split } from './array/split'
 export { tail } from './array/tail'
+export { hasProp } from './object/hasProp'
+export { objectFindKey } from './object/objectFindKey'
+export { objectMap } from './object/objectMap'

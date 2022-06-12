@@ -1,5 +1,5 @@
 {
-  "name": "fns",
+  "name": "@dowhileluke/fns",
   "version": "0.0.1",
   "description": "functions that i don't want to copypaste everywhere",
   "main": "dist/index.js",
