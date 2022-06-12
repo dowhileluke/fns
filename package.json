@@ -21,18 +21,32 @@
   "xo": {
     "semicolon": false,
     "rules": {
-      "@typescript-eslint/object-curly-spacing": ["error", "always"],
-      "import/extensions": ["error", { "ts": "never" }],
+      "@typescript-eslint/object-curly-spacing": [
+        "error",
+        "always"
+      ],
+      "import/extensions": [
+        "error",
+        {
+          "ts": "never"
+        }
+      ],
       "unicorn/filename-case": "off"
     }
   },
   "release": {
-    "branches": ["main"],
+    "branches": [
+      "main"
+    ],
     "plugins": [
-      ["@semantic-release/commit-analyzer", { "preset": "eslint" }],
+      [
+        "@semantic-release/commit-analyzer",
+        {
+          "preset": "eslint"
+        }
+      ],
       "@semantic-release/release-notes-generator",
-      "@semantic-release/npm",
-      "@semantic-release/github"
+      "@semantic-release/npm"
     ]
   },
   "repository": {
@@ -51,6 +65,7 @@
   "homepage": "https://github.com/dowhileluke/fns#readme",
   "devDependencies": {
     "@types/jest": "^28.1.1",
+    "conventional-changelog-eslint": "^3.0.9",
     "jest": "^28.1.0",
     "rimraf": "^3.0.2",
     "rollup": "^2.75.5",
