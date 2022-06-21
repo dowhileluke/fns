@@ -2,7 +2,7 @@ function isArrayForm<T>(array: T[] | T[][]): array is T[][] {
 	return array.length === 1 && Array.isArray(array)
 }
 
-/* eslint-disable-next-line @typescript-eslint/ban-types -- null is useful for generic code */
+/* eslint-disable-next-line @typescript-eslint/ban-types -- null is useful for generic code. */
 type Falsy = false | null | undefined | 0 | ''
 type Truthy<T> = Exclude<T, Falsy>
 
@@ -20,5 +20,5 @@ export function truthy<T>(...args: T[] | T[][]) {
 	return arrayToFilter.filter(Boolean)
 }
 
-/** @deprecated Use `truthy()` for identical behavior */
+/** @deprecated Use `truthy()` for identical behavior. */
 export const compact = truthy
