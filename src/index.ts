@@ -1,4 +1,4 @@
-export { compact } from './array/compact'
+export { compact, truthy } from './array/truthy'
 export { generateArray } from './array/generateArray'
 export { split } from './array/split'
 export { tail } from './array/tail'
