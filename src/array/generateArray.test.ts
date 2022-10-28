@@ -32,7 +32,7 @@ function toAlpha(i: number) {
 }
 
 test('-1 toAlpha', () => {
-	expect(generateArray(0, toAlpha)).toEqual([])
+	expect(generateArray(-1, toAlpha)).toEqual([])
 })
 
 test('0 toAlpha', () => {
