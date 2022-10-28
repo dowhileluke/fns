@@ -1,5 +1,6 @@
 export { compact, truthy } from './array/truthy'
 export { generateArray } from './array/generateArray'
+export { partition } from './array/partition'
 export { split } from './array/split'
 export { sum } from './array/sum'
 export { tail } from './array/tail'

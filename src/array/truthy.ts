@@ -2,7 +2,6 @@ function isArrayForm<T>(array: T[] | T[][]): array is T[][] {
 	return array.length === 1 && Array.isArray(array)
 }
 
-/* eslint-disable-next-line @typescript-eslint/ban-types -- null is useful for generic code. */
 type Falsy = false | null | undefined | 0 | ''
 type Truthy<T> = Exclude<T, Falsy>
 
