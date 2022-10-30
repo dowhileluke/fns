@@ -1,3 +1,4 @@
+export { categorize } from './array/categorize'
 export { compact, truthy } from './array/truthy'
 export { generateArray } from './array/generateArray'
 export { partition } from './array/partition'
