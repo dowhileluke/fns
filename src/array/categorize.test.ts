@@ -31,6 +31,7 @@ test('boolean filter -- empty array', () => {
 test('string filter -- object array', () => {
 	const result = categorize(alphas.map(value => ({ value })), x => x.value)
 
+	expect(Object.entries(result)).toHaveLength(4)
 	expect(result.b).toHaveLength(2)
 	expect(result.z).toBeUndefined()
 })
@@ -38,6 +39,7 @@ test('string filter -- object array', () => {
 test('string filter -- empty array', () => {
 	const result = categorize([], () => 'always')
 
+	expect(Object.entries(result)).toHaveLength(0)
 	expect(result.always).toBeUndefined()
 	expect(result.another).toBeUndefined()
 })
