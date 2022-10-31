@@ -1,6 +1,8 @@
 import { spoofArray } from '../util/spoofArray'
 
+/** Divides an array into [matching[], remaining[]] based on a predicate. */
 export function categorize<T>(array: T[], matchFn: (item: T) => boolean): readonly [T[], T[]]
+/** Creates a dictionary where each entry holds a list of items that map to that key. */
 export function categorize<T, U extends string | number>(array: T[], categoryFn: (item: T) => U): Record<U, T[] | undefined>
 export function categorize<T, U extends string | number>(array: T[], categoryFn: (item: T) => U | boolean) {
 	if (array.length === 0) {
