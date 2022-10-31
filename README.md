@@ -7,7 +7,7 @@ No dependencies, 40+ tests, tree-shakable, type-safe.
 npm i @dowhileluke/fns
 ```
 
-### Array Methods
+**Array Methods**
 
 * [`categorize`](#categorize)
 * [`generateArray`](#generatearray)
@@ -16,7 +16,7 @@ npm i @dowhileluke/fns
 * [`tail`](#tail)
 * [`truthy`](#truthy)
 
-### Object Methods
+**Object Methods**
 
 * [`hasProp`](#hasprop)
 * [`objectFindKey`](#objectfindkey)
