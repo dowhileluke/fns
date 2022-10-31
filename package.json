@@ -21,6 +21,15 @@
   "xo": {
     "semicolon": false,
     "rules": {
+      "@typescript-eslint/ban-types": [
+        "error",
+        {
+          "extendDefaults": true,
+          "types": {
+            "null": false
+          }
+        }
+      ],
       "@typescript-eslint/object-curly-spacing": [
         "error",
         "always"
