@@ -1,7 +1,7 @@
 # fns
 A collection of utility functions that I am too frequently copying between projects.
 
-No dependencies, tree-shakable, type-safe.
+No dependencies, 40+ tests, tree-shakable, type-safe.
 
 ```
 npm i @dowhileluke/fns
