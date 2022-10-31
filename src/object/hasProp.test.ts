@@ -9,6 +9,10 @@ describe('hasProp()', () => {
 		expect(hasProp({}, 'toString')).toBeFalsy()
 	})
 
+	it('finds props set to undefined', () => {
+		expect(hasProp({ u: undefined }, 'u')).toBeTruthy()
+	})
+
 	it('works across types', () => {
 		expect(hasProp([], 'length')).toBeTruthy()
 		expect(hasProp('abc', 'length')).toBeTruthy()
