@@ -1,12 +1,11 @@
-import { RollupOptions } from 'rollup'
+import type { RollupOptions } from 'rollup'
 import typescript2 from 'rollup-plugin-typescript2'
-import pkg from './package.json'
 
 const options: RollupOptions = {
 	input: 'src/index.ts',
 	output: [
-		{ file: pkg.module, format: 'es' },
-		{ file: pkg.main, format: 'cjs' },
+		{ file: 'dist/index.esm.js', format: 'es' },
+		{ file: 'dist/index.js', format: 'cjs' },
 	],
 	plugins: [
 		typescript2({

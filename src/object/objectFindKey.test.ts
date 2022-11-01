@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import { objectFindKey } from './objectFindKey'
 
 const example: Record<string, number> = {
@@ -16,4 +17,19 @@ test('objectFindKey (by value)', () => {
 
 test('objectFindKey (by key)', () => {
 	expect(objectFindKey(example, (_, key) => key.endsWith('o'))).toBe('two')
+})
+
+test('objectFindKey typing', () => {
+	const input = {
+		1: 'one',
+		2: 'two',
+		3: 'three',
+	}
+
+	const typedResult = objectFindKey(input, () => true)
+
+	if (typeof typedResult !== 'undefined') {
+		// Inside guard, typedResult = 1 | 2 | 3
+		expect(typeof input[typedResult]).toEqual('string')
+	}
 })
