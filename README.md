@@ -48,7 +48,7 @@ function toCategory(person) {
 const ageGroups = categorize([a, b, c] => toCategory)
 // ageGroups.teen  = [a]
 // ageGroups.adult = [b, c]
-// Object.entries(ageGroups) = ['teen', 'adult']
+// Object.keys(ageGroups) = ['teen', 'adult']
 ```
 
 ### `generateArray`
