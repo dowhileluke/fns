@@ -39,6 +39,7 @@ const [babies, others] = categorize([a, b, c], x => x.age < 2)
 
 // Mode 2 -- category
 function toCategory(person) {
+	if (person.age < 2) return 'baby'
 	if (person.age < 13) return 'child'
 	if (person.age < 20) return 'teen'
 	
@@ -46,6 +47,8 @@ function toCategory(person) {
 }
 
 const ageGroups = categorize([a, b, c] => toCategory)
+// ageGroups.baby  = undefined
+// ageGroups.child = undefined
 // ageGroups.teen  = [a]
 // ageGroups.adult = [b, c]
 // Object.keys(ageGroups) = ['teen', 'adult']
