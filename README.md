@@ -140,6 +140,6 @@ objectFindKey({ a, b, c }, x => x.value === 2) // 'b'
 convert each element in an object (like Array#map)
 
 ```js
-objectFindKey({ a: 1, b: 2, c: 3 }, x => x ** 2)
+objectMap({ a: 1, b: 2, c: 3 }, x => x ** 2)
 // { a: 1, b: 4, c: 9 }
 ```
