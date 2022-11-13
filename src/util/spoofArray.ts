@@ -1,8 +1,6 @@
-import { generateArray } from '..'
+import { generateArray } from '../array/generateArray'
 
-type MapIndexFn<T> = (index: number) => T
-
-export function spoofArray<T>(length: number, valueOrFn: T | MapIndexFn<T>) {
+export function spoofArray<T>(length: number, valueOrFn: T | ((index: number) => T)) {
 	const values = generateArray(length, valueOrFn instanceof Function ? valueOrFn : () => valueOrFn)
 	const result = {
 		* [Symbol.iterator]() {
