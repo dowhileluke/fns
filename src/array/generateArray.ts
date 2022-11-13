@@ -20,9 +20,9 @@ export function generateArray(n: number): number[]
 /** Creates an array of integers from `a` to `b` (inclusive). */
 export function generateArray(a: number, b: number): number[]
 /** Maps every integer from `0` to `n-1` into a list of values. */
-export function generateArray<T>(n: number, mapFn: MapFn<T>): T[]
+export function generateArray<T>(n: number, mapFn: (index: number) => T): T[]
 /** Maps every integer from `a` to `b` (inclusive) into a list of values. */
-export function generateArray<T>(a: number, b: number, mapFn: MapFn<T>): T[]
+export function generateArray<T>(a: number, b: number, mapFn: (n: number) => T): T[]
 export function generateArray<T>(a: number, b?: number | MapFn<T>, c?: MapFn<T>) {
 	const [start, length, isAscending, mapFn] = sanitizeArgs(a, b, c)
 	const indexToValue: MapIndexFn = isAscending ? (_, i) => start + i : (_, i) => start - i
