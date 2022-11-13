@@ -1,8 +1,13 @@
-export function spoofArray<T>(length: number, value: T) {
+import { generateArray } from '..'
+
+type MapIndexFn<T> = (index: number) => T
+
+export function spoofArray<T>(length: number, valueOrFn: T | MapIndexFn<T>) {
+	const values = generateArray(length, valueOrFn instanceof Function ? valueOrFn : () => valueOrFn)
 	const result = {
 		* [Symbol.iterator]() {
 			for (let i = 0; i < length; i++) {
-				yield value
+				yield values[i]
 			}
 		},
 	}
@@ -11,7 +16,7 @@ export function spoofArray<T>(length: number, value: T) {
 	Object.defineProperty(result, 'length', { value: length })
 
 	for (let i = 0; i < length; i++) {
-		Object.defineProperty(result, i, { value })
+		Object.defineProperty(result, i, { value: values[i] })
 	}
 
 	return result as T[]

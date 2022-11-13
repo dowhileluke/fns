@@ -7,7 +7,7 @@ export function categorize<T, U extends string | number>(array: T[], categoryFn:
 export function categorize<T, U extends string | number>(array: T[], categoryFn: (item: T) => U | boolean) {
 	if (array.length === 0) {
 		// Return an array-like result compatible with both overload signatures
-		return spoofArray(2, [])
+		return spoofArray(2, () => [])
 	}
 
 	const trueItems: T[] = []

@@ -19,3 +19,9 @@ it('has no iterable properties', () => {
 
 	expect(Object.entries(result)).toHaveLength(0)
 })
+
+it('supports a mapping function for unique values', () => {
+	const [a, b] = spoofArray(2, () => [])
+
+	expect(a).not.toBe(b)
+})
