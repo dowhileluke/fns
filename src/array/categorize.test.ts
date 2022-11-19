@@ -58,3 +58,33 @@ test('number | string filter', () => {
 	expect(result[0]).toHaveLength(2)
 	expect(result['2']).toHaveLength(1)
 })
+
+/// Additional type tests
+
+type MaybeValued = {
+	value?: string;
+}
+
+type DefinitelyValued = {
+	value: string;
+}
+
+function isValued(v: MaybeValued): v is DefinitelyValued {
+	return typeof v.value === 'string'
+}
+
+const unsorted: MaybeValued[] = [
+	{},
+	{ value: 'yes' },
+	{ value: 'certainly' },
+]
+
+test('boolean predicate filter', () => {
+	const [itemsWithValue, itemsWithoutValue] = categorize(unsorted, isValued)
+
+	// Lie to Typescript
+	expect(() => itemsWithoutValue.map(({ value }) => value!.length)).toThrow()
+
+	// Should have DefinitelyValued type
+	expect(() => itemsWithValue.map(({ value }) => value.length)).not.toThrow()
+})

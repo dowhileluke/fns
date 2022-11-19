@@ -1,7 +1,8 @@
 import { generateArray } from '../array/generateArray'
 
 export function spoofArray<T>(length: number, valueOrFn: T | ((index: number) => T)) {
-	const values = generateArray(length, valueOrFn instanceof Function ? valueOrFn : () => valueOrFn)
+	const valueFn = valueOrFn instanceof Function ? valueOrFn : () => valueOrFn
+	const values = generateArray(length, valueFn)
 	const result = {
 		* [Symbol.iterator]() {
 			for (let i = 0; i < length; i++) {

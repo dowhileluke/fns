@@ -25,3 +25,15 @@ it('supports a mapping function for unique values', () => {
 
 	expect(a).not.toBe(b)
 })
+
+test('another mapping function', () => {
+	const powers = spoofArray(4, n => 2 ** n)
+	let total = 0
+
+	// Can't use Array#reduce here, unfortunately
+	for (const n of powers) {
+		total += n
+	}
+
+	expect(total + 1).toEqual(2 ** 4)
+})
