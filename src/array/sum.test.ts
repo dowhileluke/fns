@@ -17,3 +17,7 @@ const objectArray = [
 test('adds prop values', () => {
 	expect(sum(objectArray, ({ value }) => value)).toEqual(6)
 })
+
+test('index param works', () => {
+	expect(sum([1, 2, 3], (_, i) => i)).toEqual(3)
+})

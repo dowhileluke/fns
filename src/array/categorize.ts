@@ -1,12 +1,12 @@
 import { spoofArray } from '../util/spoofArray'
 
 /** Divides an array into [matching[], remaining[]] based on a predicate. */
-export function categorize<T, S extends T>(array: T[], matchFn: (item: T) => item is S): [S[], T[]]
+export function categorize<T, S extends T>(array: T[], matchFn: (value: T, index: number) => value is S): [S[], T[]]
 /** Divides an array into [matching[], remaining[]] based on a predicate. */
-export function categorize<T>(array: T[], matchFn: (item: T) => boolean): [T[], T[]]
+export function categorize<T>(array: T[], matchFn: (value: T, index: number) => boolean): [T[], T[]]
 /** Creates a dictionary where each entry holds a list of items that map to that key. */
-export function categorize<T, U extends string | number>(array: T[], categoryFn: (item: T) => U): Record<U, T[] | undefined>
-export function categorize<T, U extends string | number>(array: T[], categoryFn: (item: T) => U | boolean) {
+export function categorize<T, U extends string | number>(array: T[], categoryFn: (value: T, index: number) => U): Record<U, T[] | undefined>
+export function categorize<T, U extends string | number>(array: T[], categoryFn: (value: T, index: number) => U | boolean) {
 	if (array.length === 0) {
 		// Return an array-like result compatible with all overload signatures
 		return spoofArray(2, () => [])
@@ -17,8 +17,8 @@ export function categorize<T, U extends string | number>(array: T[], categoryFn:
 	const result = {} as unknown as Record<U, T[] | undefined>
 	let isBoolean = false
 
-	for (const item of array) {
-		const key = categoryFn(item)
+	for (const [index, item] of array.entries()) {
+		const key = categoryFn(item, index)
 
 		// Track all items by truthiness
 		if (key) {

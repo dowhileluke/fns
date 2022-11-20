@@ -1,12 +1,12 @@
 /** Returns the sum of the provided numbers. */
 export function sum(array: number[]): number
-export function sum<T>(array: T[], mapFn: (item: T) => number): number
-export function sum<T>(array: T[], mapFn?: (item: T) => number) {
+export function sum<T>(array: T[], mapFn: (value: T, index: number) => number): number
+export function sum<T>(array: T[], mapFn?: (value: T, index: number) => number) {
 	if (mapFn) {
 		let total = 0
 
-		for (const item of array) {
-			total += mapFn(item)
+		for (const [index, item] of array.entries()) {
+			total += mapFn(item, index)
 		}
 
 		return total

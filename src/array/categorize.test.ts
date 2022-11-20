@@ -10,6 +10,7 @@ function isEven(value: number) {
 
 const numbers = [1, 0, 3, 4, 1, 2, 3]
 const alphas = ['c', 'b', 'c', 'a', 'b', 'd']
+const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('')
 const numberStringMix = [0, '0', 1, '1', 2]
 
 test('boolean filter -- number array', () => {
@@ -59,7 +60,14 @@ test('number | string filter', () => {
 	expect(result['2']).toHaveLength(1)
 })
 
-/// Additional type tests
+test('number filter -- clump by index', () => {
+	const result = categorize(alphabet, (_, i) => Math.floor(i / 5))
+
+	expect(result[0]).toEqual(['a', 'b', 'c', 'd', 'e'])
+	expect(result[5]).toEqual(['z'])
+})
+
+/// Additional type test ///
 
 type MaybeValued = {
 	value?: string;
