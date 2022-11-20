@@ -82,9 +82,9 @@ const unsorted: MaybeValued[] = [
 test('boolean predicate filter', () => {
 	const [itemsWithValue, itemsWithoutValue] = categorize(unsorted, isValued)
 
-	// Lie to Typescript
+	// Lie to Typescript to cause runtime errors
 	expect(() => itemsWithoutValue.map(({ value }) => value!.length)).toThrow()
 
-	// Should have DefinitelyValued type
+	// Will have DefinitelyValued type
 	expect(() => itemsWithValue.map(({ value }) => value.length)).not.toThrow()
 })
