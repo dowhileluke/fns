@@ -55,7 +55,7 @@ const ageGroups = categorize([a, b, c] => toCategory)
 ```
 
 ### `generateArray`
-create a new array for a chosen number of elements
+create a new array for a chosen number of elements or range of integer values
 
 ```js
 generateArray(4) // [0, 1, 2, 3]
