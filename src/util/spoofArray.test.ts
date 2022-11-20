@@ -1,3 +1,4 @@
+import { sum } from '../array/sum'
 import { spoofArray } from './spoofArray'
 
 it('is iterable', () => {
@@ -14,6 +15,12 @@ it('behaves like an array for property access', () => {
 	expect(result).toHaveLength(5)
 })
 
+it('is passes Array.isArray', () => {
+	const result = spoofArray(9, 'nine')
+
+	expect(Array.isArray(result)).toBeTruthy()
+})
+
 it('has no iterable properties', () => {
 	const result = spoofArray(2, [])
 
@@ -28,12 +35,7 @@ it('supports a mapping function for unique values', () => {
 
 test('another mapping function', () => {
 	const powers = spoofArray(4, n => 2 ** n)
-	let total = 0
-
-	// Can't use Array#reduce here, unfortunately
-	for (const n of powers) {
-		total += n
-	}
+	const total = sum(powers)
 
 	expect(total + 1).toEqual(2 ** 4)
 })
