@@ -7,3 +7,6 @@ export { tail } from './array/tail'
 export { hasProp } from './object/hasProp'
 export { objectFindKey } from './object/objectFindKey'
 export { objectMap } from './object/objectMap'
+
+export type { Falsy } from './array/truthy'
+export type { ObjectFn } from './object/types'
