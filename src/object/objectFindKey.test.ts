@@ -2,6 +2,7 @@
 import { objectFindKey } from './objectFindKey'
 
 const example: Record<string, number> = {
+	zero: 0,
 	one: 1,
 	two: 2,
 	three: 3,
@@ -16,7 +17,11 @@ test('objectFindKey (by value)', () => {
 })
 
 test('objectFindKey (by key)', () => {
-	expect(objectFindKey(example, (_, key) => key.endsWith('o'))).toBe('two')
+	expect(objectFindKey(example, (_, key) => key.startsWith('o'))).toBe('one')
+})
+
+test('objectFindKey truthy', () => {
+	expect(objectFindKey(example, n => n)).toBeTruthy()
 })
 
 test('objectFindKey typing', () => {
