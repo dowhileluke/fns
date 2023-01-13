@@ -1,7 +1,7 @@
 # fns
 A collection of utility functions that I am too frequently copying between projects.
 
-No dependencies, 50+ tests, tree-shakable, type-safe.
+No dependencies, 60+ tests, tree-shakable, type-safe.
 
 ```
 npm i @dowhileluke/fns
@@ -19,6 +19,7 @@ npm i @dowhileluke/fns
 **Object Methods**
 
 * [`hasProp`](#hasprop)
+* [`objectFilter`](#objectfilter)
 * [`objectFindKey`](#objectfindkey)
 * [`objectMap`](#objectmap)
 
@@ -123,6 +124,21 @@ const example = { u: undefined }
 hasProp(example, 'u') // true
 hasProp(example, 'x') // false
 hasProp('str', 'toLowerCase') // false, only exists on prototype
+```
+
+### `objectFilter`
+get a subset of an object (like Array#filter) 
+
+```js
+const directory = {
+	101: { ownerId: 1 },
+	102: { ownerId: 1 },
+	103: { ownerId: 2 },
+}
+
+const ownedBy1 = objectFilter(directory, item => item.ownerId === 1)
+
+Object.keys(ownedBy1) // ['101', '102']
 ```
 
 ### `objectFindKey`

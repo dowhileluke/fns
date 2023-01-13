@@ -5,7 +5,7 @@ export function categorize<T, S extends T>(array: T[], matchFn: (value: T, index
 /** Divides an array into [matching[], remaining[]] based on a predicate. */
 export function categorize<T>(array: T[], matchFn: (value: T, index: number) => boolean): [T[], T[]]
 /** Creates a dictionary where each entry holds a list of items that map to that key. */
-export function categorize<T, U extends string | number>(array: T[], categoryFn: (value: T, index: number) => U): Record<U, T[] | undefined>
+export function categorize<T, U extends string | number>(array: T[], categoryFn: (value: T, index: number) => U): Partial<Record<U, T[]>>
 export function categorize<T, U extends string | number>(array: T[], categoryFn: (value: T, index: number) => U | boolean) {
 	if (array.length === 0) {
 		// Return an array-like result compatible with all overload signatures
@@ -14,7 +14,7 @@ export function categorize<T, U extends string | number>(array: T[], categoryFn:
 
 	const trueItems: T[] = []
 	const falseItems: T[] = []
-	const result = {} as unknown as Record<U, T[] | undefined>
+	const result: Partial<Record<U, T[]>> = {}
 	let isBoolean = false
 
 	for (const [index, item] of array.entries()) {
