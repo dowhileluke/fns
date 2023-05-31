@@ -17,4 +17,10 @@ describe('hasProp()', () => {
 		expect(hasProp([], 'length')).toBeTruthy()
 		expect(hasProp('abc', 'length')).toBeTruthy()
 	})
+
+	it('adds the key to the type definition of the tested object', () => {
+		const emptyDemo = {}
+
+		expect(hasProp(emptyDemo, 'a') && typeof emptyDemo.a === 'string').toBeFalsy()
+	})
 })
