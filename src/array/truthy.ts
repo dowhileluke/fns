@@ -18,11 +18,8 @@ export function truthy<T>(...args: Array<T | Falsy>): Array<Exclude<T, Falsy>>
  * For example: `truthy(0, 1, 2)` -> `[1, 2]`
  */
 export function truthy<T extends any[]>(...args: T): Array<Exclude<T[number], Falsy>>
-export function truthy<T>(...args: Array<T | Falsy> | Array<Array<T | Falsy>>) {
+export function truthy<T>(...args: T[] | T[][]) {
 	const arrayToFilter = isArrayForm(args) ? args[0] : args
 
 	return arrayToFilter.filter(Boolean)
 }
-
-/** @deprecated Use `truthy()` for identical behavior. */
-export const compact = truthy

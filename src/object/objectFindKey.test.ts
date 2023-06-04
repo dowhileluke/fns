@@ -20,6 +20,16 @@ test('objectFindKey (by key)', () => {
 	expect(objectFindKey(example, (_, key) => key.startsWith('o'))).toBe('one')
 })
 
+test('objectFindKey (symbol)', () => {
+	const o: Record<PropertyKey, boolean | string> = {
+		[Symbol.for('test')]: true,
+		a: 'str',
+		b: false,
+	}
+
+	expect(objectFindKey(o, value => value === true)).toEqual(Symbol.for('test'))
+})
+
 test('objectFindKey truthy', () => {
 	expect(objectFindKey(example, n => n)).toBeTruthy()
 })

@@ -37,6 +37,7 @@ const mixed = {
 	a: 1,
 	b: 'two',
 	c: false,
+	[Symbol.for('test')]: 'two',
 }
 
 function isTwo(v: unknown): v is 'two' {
@@ -52,6 +53,9 @@ test('type predicate', () => {
 
 	expect(Object.values(result)).toHaveLength(1)
 	expect(Object.values(result).every(v => isTwo(v))).toBeTruthy()
+
+	// Second check; Object.values does not return symbols
+	expect(result[Symbol.for('test')]).not.toBeUndefined()
 })
 
 test('type predicate - empty', () => {

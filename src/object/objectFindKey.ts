@@ -1,3 +1,4 @@
+import { getEnumerableSymbols } from '../util/getEnumerableSymbols'
 import type { Entries, ObjectFn } from './types'
 
 /** Iterates the object's keys and returns the first to match the predicate. (like Array#findIndex behavior) */
@@ -8,6 +9,12 @@ export function objectFindKey<T extends Record<string, unknown>>(
 	for (const [key, value] of Object.entries(object) as Entries<T>) {
 		if (predicate(value, key, object)) {
 			return key
+		}
+	}
+
+	for (const symbolKey of getEnumerableSymbols(object)) {
+		if (predicate(object[symbolKey], symbolKey, object)) {
+			return symbolKey
 		}
 	}
 }

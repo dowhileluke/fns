@@ -1,5 +1,5 @@
 export { categorize } from './array/categorize'
-export { compact, truthy } from './array/truthy'
+export { truthy } from './array/truthy'
 export { generateArray } from './array/generateArray'
 export { split } from './array/split'
 export { sum } from './array/sum'

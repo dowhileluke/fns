@@ -23,7 +23,7 @@ test('objectMap typing', () => {
 	expect(typeof typedResult.one).toEqual('number')
 })
 
-test('objectMap preserves symbols', () => {
+test('objectMap handles symbols', () => {
 	const input = {
 		[Symbol.for('test')]: 'original',
 		a: 'original',
@@ -32,7 +32,7 @@ test('objectMap preserves symbols', () => {
 
 	const output = objectMap(input, () => 'updated')
 
-	expect(output[Symbol.for('test')]).toEqual('original')
+	expect(output[Symbol.for('test')]).toEqual('updated')
 	expect(output.a).toEqual('updated')
 	expect(output[4]).toEqual('updated')
 })
