@@ -12,5 +12,5 @@ export function sum<T>(array: T[], mapFn?: (value: T, index: number) => number) 
 		return total
 	}
 
-	return (array as unknown as number[]).reduce((total, n) => total + n)
+	return (array as unknown as number[]).reduce((total, n) => total + n, 0)
 }

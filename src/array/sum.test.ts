@@ -8,6 +8,10 @@ test('can return NaN', () => {
 	expect(sum([1, 2, Number.NaN])).toEqual(Number.NaN)
 })
 
+test('empty array', () => {
+	expect(sum([])).toEqual(0)
+})
+
 const objectArray = [
 	{ value: 1 },
 	{ value: 2 },
